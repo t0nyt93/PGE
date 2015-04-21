@@ -29,6 +29,7 @@ https://msdn.microsoft.com/en-us/library/microsoft.office.interop.outlook._names
 '''
 ons = outlook.GetNamespace("MAPI")
 
+#### this First block is not necessary so far
 '''
 upperAccount refers to a MAPIFolder Object which  is a child of ons. This MAPIFolder object refers to the e-mail account being accessed within the namespace
 In this case my Outlook consists of my PGE e-mail Anthony.Tyrrell@pgn.com, and the IT Security Operations E-mail. So we iterate through Folder until we
@@ -36,7 +37,7 @@ find the account we want to look inside.
 Information on methods and properties of MAPIFolder objects can be found at the link below. 
 
 https://msdn.microsoft.com/en-us/library/microsoft.office.interop.outlook.mapifolder_members(v=office.14).aspx
-'''
+
 try:
 	upperAccount = ons.Folders
 	for x in upperAccount:
@@ -47,7 +48,7 @@ try:
 except Exception as error:
 	print "Looks like we had an issue accessing ITSecOps"
 	print (error)
-
+'''
 '''
 After we have retrieved the correct account, we look for the mail folder we are interested in. In this case it's the Inbox, which is another MAPIFolder instance.
 '''
