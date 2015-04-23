@@ -117,7 +117,7 @@ for sheet_name in rb.sheet_names():
 						compIP = out[1]
 						compIP=compIP.strip("[]")
 					# Now is the time to write out gathered information into something that QRADAR can understand and document
-					os.chdir('leefLogs')
+					#os.chdir('leefLogs')
 					# This sets everything to the correct LEEF format
 					keyDomain = 'domain='+compDomain+'\t'
 					keyIP = 'src=' + compIP+'\t'
@@ -125,15 +125,8 @@ for sheet_name in rb.sheet_names():
 					keyURL = 'url='+resultList[counter].permaLink
 					logName = 'LEEF'+resultList[counter].machineName + '.log'
 					#### Open our logfile and begin writing to it
-					fd = open(logName,'w+')
-					fd.write(LEEF_HEADER)
-					fd.write(keyDomain)
-					fd.write(keyIP)
-					fd.write(keyFile)
-					fd.write(keyURL)
-					fd.close()
 					# After we have written to the correct file traverse up a directory so that we can read from the excel file again
-					os.chdir(previousDir)
+					#os.chdir(previousDir)
 			index +=1	
 			counter += 1
 				

@@ -36,12 +36,13 @@ find the account we want to look inside.
 Information on methods and properties of MAPIFolder objects can be found at the link below. 
 
 https://msdn.microsoft.com/en-us/library/microsoft.office.interop.outlook.mapifolder_members(v=office.14).aspx
-
+'''
 try:
 	upperAccount = ons.Folders
 	for x in upperAccount:
 		upperAccount = ons.Folders.GetNext()
-		if x.Name == "IT Security Operations":
+		if x.Name == "IT.SECOPS@pgn.com":
+			print 'found it'
 			itAcc = x
 			break
 except Exception as error:
@@ -49,14 +50,15 @@ except Exception as error:
 	print (error)
 
 
-'''
+
 '''
 After we have retrieved the correct account, we look for the mail folder we are interested in. In this case it's the Inbox, which is another MAPIFolder instance.
 '''
 try:
-	secopsInbox = ons.Folders
+	secopsInbox = itAcc.Folders
 	# Loop through available folders until we match
 	for y in secopsInbox:
+		print y.name
 		if y.Name == "Inbox":
 			secInbox = y
 			break
@@ -67,6 +69,7 @@ except Exception as e:
 ''' More Mapi Folder Instances '''
 try:
 	for z in secInbox.Folders:
+		print z.name
 		if z.Name == 'McAfee':
 			subFold = z
 			break
@@ -80,6 +83,7 @@ In this iteration, we once again (for the last time) iterate through the subfold
 '''
 try:
 	for t in subFold2:
+		print t.name
 		if t.Name == 'Virus Research- Avertlabs':
 			myFolder = t
 			break
@@ -109,7 +113,7 @@ for xx in messages:
 				#Naming convention for our files, text+machine name
 				filename = '/text' + str(eID) + '.txt'
 			#Path to where we're going to write it
-				fileDirect = "C:\Users\e04675\Desktop\Scripts\emailBodies" 
+				fileDirect = "C:\Users\itsecops\Desktop\Scripts\PGE\emailBodies" 
 				final = fileDirect+filename
 				printStr = xx.Body
 			#Open the file, write to it, and close it. Simple Enough

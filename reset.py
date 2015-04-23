@@ -1,5 +1,4 @@
 import os
-from xlutils.copy import *
 from xlrd import *
 from xlwt import *
 homeDir = os.getcwd()
@@ -14,13 +13,13 @@ for f in os.listdir('.'):
 
 os.chdir(homeDir)
 
-
+'''
 os.chdir('leefLogs')
 myPath = os.path.dirname(os.path.abspath(__file__))
 for f in os.listdir('.'):
 	print"removing %s"%f
 	os.remove(myPath + '/' + f)
-
+'''
 myTable = 'MD5SCAN.xls'
 os.chdir(homeDir)
 
