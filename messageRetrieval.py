@@ -36,7 +36,7 @@ find the account we want to look inside.
 Information on methods and properties of MAPIFolder objects can be found at the link below. 
 
 https://msdn.microsoft.com/en-us/library/microsoft.office.interop.outlook.mapifolder_members(v=office.14).aspx
-'''
+
 try:
 	upperAccount = ons.Folders
 	for x in upperAccount:
@@ -48,11 +48,13 @@ except Exception as error:
 	print "Looks like we had an issue accessing ITSecOps"
 	print (error)
 
+
+'''
 '''
 After we have retrieved the correct account, we look for the mail folder we are interested in. In this case it's the Inbox, which is another MAPIFolder instance.
 '''
 try:
-	secopsInbox = itAcc.Folders
+	secopsInbox = ons.Folders
 	# Loop through available folders until we match
 	for y in secopsInbox:
 		if y.Name == "Inbox":
