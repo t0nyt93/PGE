@@ -22,6 +22,7 @@ foundFlag = 0
 myTable = 'MD5SCAN.xls'
 previous_dir = os.getcwd()
 #########
+
 ######### Change our working directory to the location of the e-mail bodies we will be parsing. 
 os.chdir('emailBodies')
 ######### For all of the files in this directory (Should only be .txts in a certain format) iterate through them
