@@ -15,8 +15,16 @@ class myMD5:
 	detectedBy = []
 	machineName = ''
 	fileName = ''
+	ip = ''
 class emailParse:
 	'''this class is designed to pull information contained in emails for getsusp'''
 	machineID= ''
 	foundFiles = []
 	foundMD5 = []
+
+class ipSaver:
+	localIP = ''
+	machineName = ''
+	md5 = ''
+	filename =''
+	timeStamp = 0
